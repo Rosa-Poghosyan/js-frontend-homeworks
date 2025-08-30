@@ -1,0 +1,231 @@
+/* ====== Global Reset & Layout ====== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #f9fafb;
+    color: #111827;
+    margin: 0;
+    padding: 40px 20px;
+}
+
+/* ====== Main container ====== */
+.todo__container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+
+/* ====== Header ====== */
+.todo__header {
+    margin: 20px 0 16px;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    color: #1f2937;
+}
+
+/* ====== Add ToDo form ====== */
+.add-todo {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding: 16px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+.add-todo p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.add-todo .error {
+    font-size: 14px;
+    font-weight: 500;
+    color: #dc2626;
+}
+
+.add-todo input {
+    padding: 10px 14px;
+    font-size: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.add-todo input:focus {
+    border-color: #22c55e;
+    box-shadow: 0 0 0 3px rgba(34,197,94,0.25);
+}
+
+.add-todo button {
+    align-self: flex-start;
+    padding: 10px 18px;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    background: #22c55e;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.add-todo button:hover {
+    background: #16a34a;
+}
+
+/* ====== List wrapper ====== */
+.todo-list {
+    margin: 20px 0;
+    padding: 0;
+}
+
+.todo-list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* ====== Todo Item ====== */
+.todo,
+.done {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding: 14px 18px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.todo:hover,
+.done:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+.todo p,
+.done p {
+    flex: 1;
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+    color: #1f2937;
+    word-break: break-word;
+}
+
+.done {
+    background: #f3f4f6;
+    border-color: #d1d5db;
+}
+
+.done p {
+    color: #6b7280;
+    text-decoration: line-through;
+}
+
+/* ====== Buttons inside ToDoItem ====== */
+.todo button,
+.done button {
+    min-width: 90px; /* keeps Cancel/Complete symmetric */
+    text-align: center;
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Delete button */
+.todo button:first-of-type,
+.done button:first-of-type {
+    background: #fee2e2;
+    color: #b91c1c;
+    border-color: #fecaca;
+}
+.todo button:first-of-type:hover,
+.done button:first-of-type:hover {
+    background: #fca5a5;
+    color: #7f1d1d;
+}
+
+/* Complete / Cancel button */
+.todo button:last-of-type,
+.done button:last-of-type {
+    background: #dcfce7;
+    color: #166534;
+    border-color: #bbf7d0;
+}
+.todo button:last-of-type:hover,
+.done button:last-of-type:hover {
+    background: #86efac;
+    color: #065f46;
+}
+
+/* ====== Filters ====== */
+.todo__filters {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.todo__filters button {
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    background: #f3f4f6;
+    border: 1px solid #d1d5db;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.todo__filters button:hover {
+    background: #e5e7eb;
+}
+
+.todo__filters button.active {
+    background: #22c55e;
+    border-color: #22c55e;
+    color: #ffffff;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 500px) {
+    .todo,
+    .done {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .todo button,
+    .done button {
+        width: 100%;
+    }
+}
