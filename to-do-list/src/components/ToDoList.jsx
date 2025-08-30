@@ -35,7 +35,6 @@ export const ToDoList = () => {
 
     const filteredTodos = statusFilter === null ? todos : todos.filter(todo => todo.completed === statusFilter);
 
-
     return <>
         <AddToDo onAdd={handleAdd}/>
         <h2 className="todo__header">ToDo List</h2>

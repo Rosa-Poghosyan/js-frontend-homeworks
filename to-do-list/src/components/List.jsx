@@ -9,7 +9,6 @@ export const List = ({items, onDelete, onToggle}) => {
                 {items.map(item => (
                     <ToDoItem
                         key={item.id}
-                        item={item}
                         todo={item}
                         onDelete={onDelete}
                         onToggle={onToggle}
